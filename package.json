@@ -10,8 +10,7 @@
   "author": "Thuan Matheus",
   "license": "MIT",
   "dependencies": {
-    "prompt-sync": "^4.2.0",
     "puppeteer": "^3.3.0",
-    "puppeteer-firefox": "^0.5.1"
+    "readline-sync": "^1.4.10"
   }
 }
