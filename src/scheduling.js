@@ -17,31 +17,22 @@ const scheduling = async (minuts, page, url) => {
       // Caso você seja um dev comente o <process.exit()> para quando mudar o programa não termine
       if (page.url() != url) {
         console.log(
-          "\n\nVocê mudou de live ou o Streamer fez uma raid!!\n\nBot encerrado!"
+          "\n\n ***Você mudou de live ou o Streamer fez uma raid!! ***\n\n ***Bot encerrado! ***"
         );
         process.exit();
       }
 
       // selecionar o button e dar um click!
       const itemPontos = await page.waitForXPath(Credent.Points_Channel);
-      await itemPontos.click().then(function (resolve) {
-        console.log("\tGanhou +50 pontos!!!");
-        tentativas = 1;
-      });
+      await itemPontos.click();
+      console.log("\t * Ganhou +50 pontos!!! * ");
       // Caso Retorne algum erro
     } catch (e) {
-      // Caso ultrapasse a quantidade de tentativas.
-      if (tentativas === 10) {
-        console.log("\n\nNumero de Tentativas excedido\n\nBot encerrado!");
-        process.exit();
-      }
       // Caso não tenha pontos disponíveis.
-      console.log(`${tentativas}-Não existe ponto disponível!`);
+      console.log(Date.now() - "Sem ponto disponível!");
 
       tentativas++;
     }
   }, minuts);
 };
-module.exports = {
-  scheduling,
-};
+module.exports = scheduling;

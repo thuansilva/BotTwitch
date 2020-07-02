@@ -4,9 +4,7 @@ const { Credent, Code } = require("./config/utils");
 
 const actionsEnter = async (page, username, chave, url) => {
   await page.goto(url);
-
   // Passso para realizar o login.
-
   const buttonLogin = await page.waitForXPath(Credent.buttonLogin);
   buttonLogin.click();
   const login = await page.waitForXPath(Credent.login);
@@ -33,6 +31,4 @@ const actionsEnter = async (page, username, chave, url) => {
   console.clear();
   console.log("Verifique se foi realizado o login na pagina.\nBot Rodando!");
 };
-module.exports = {
-  actionsEnter,
-};
+module.exports = actionsEnter;
